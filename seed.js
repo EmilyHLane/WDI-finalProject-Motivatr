@@ -45,9 +45,13 @@ const posts = [
 const comments = [
   {
     commentBy: "x",
-    commentText: "comment text here"
+    commentText:
+      "comment text here dodo dodo dodo dodo this is the twilight zone"
   },
-  { commentBy: "y", commentText: "y comment string here" }
+  {
+    commentBy: "y",
+    commentText: "y comment string here nana nana nana nana batmaaaaaaannnnnn"
+  }
 ];
 
 //delete all users
@@ -85,16 +89,10 @@ db.User.deleteMany(err => {
             //associate posts with users
             newPosts.forEach((post, index) => {
               post.createdBy = newUsers[index];
+              post.comments = newComments[index];
               console.log(`Post #${index} saved!`);
               post.save();
               console.log(post);
-
-              //   //associate comments with posts
-              //   newComments.forEach((comment, index) => {
-              //     comment.post = newPosts[index];
-              //     console.log(`Comment #${index} saved.`);
-              //     comment.save();
-              //   });
             });
           });
         });
