@@ -18,7 +18,7 @@ const show = (req, res) => {
   });
 };
 
-//createnew post
+//create new post
 const create = (req, res) => {
   Post.create(req.body, (err, newPost) => {
     if (err) throw err;
@@ -26,4 +26,25 @@ const create = (req, res) => {
   });
 };
 
-module.exports = { index, show, create };
+//update post
+const update = (req, res) => {
+  Post.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    { new: true },
+    (err, updatedPost) => {
+      if (err) throw err;
+      res.json(updatedPost);
+    }
+  );
+};
+
+//delete a post
+const destroy = (req, res) => {
+  Post.findByIdAndDelete(req.params.id, (err, deletedPost) => {
+    if (err) throw err;
+    console.log("deleted " + deletedPost);
+  });
+};
+
+module.exports = { index, show, create, update, destroy };

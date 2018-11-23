@@ -10,6 +10,7 @@ const index = (req, res) => {
   });
 };
 
+//find user by id
 const show = (req, res) => {
   User.findById(req.params.id, (err, showUser) => {
     if (err) throw err;
@@ -17,11 +18,16 @@ const show = (req, res) => {
   });
 };
 
+//create a new user
 const create = (req, res) => {
   User.create(req.body, (err, newUser) => {
     if (err) throw err;
     res.json(newUser);
   });
 };
+
+//update a user - add later if needed
+
+//delete a user - add later if needed
 
 module.exports = { index, show, create };

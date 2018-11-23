@@ -11,4 +11,10 @@ router.get("/:id", ctrl.post.show);
 //create new post
 router.post("/", ctrl.post.create);
 
+//edit post
+router.put("/:id", ctrl.post.update);
+
+//delete post
+router.delete("/:id", ctrl.post.destroy);
+
 module.exports = router;
