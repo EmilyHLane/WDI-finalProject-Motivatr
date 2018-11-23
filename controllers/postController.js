@@ -2,7 +2,7 @@ const db = require("../models");
 const Post = db.Post;
 
 //business logic - CRUD - here
-//find all users
+//find all posts
 const index = (req, res) => {
   Post.find({}, (err, allPosts) => {
     if (err) throw err;
@@ -10,6 +10,7 @@ const index = (req, res) => {
   });
 };
 
+//find post by id
 const show = (req, res) => {
   Post.findById(req.params.id, (err, showPost) => {
     if (err) throw err;
@@ -17,4 +18,12 @@ const show = (req, res) => {
   });
 };
 
-module.exports = { index, show };
+//createnew post
+const create = (req, res) => {
+  Post.create(req.body, (err, newPost) => {
+    if (err) throw err;
+    res.json(newPost);
+  });
+};
+
+module.exports = { index, show, create };

@@ -17,4 +17,11 @@ const show = (req, res) => {
   });
 };
 
-module.exports = { index, show };
+const create = (req, res) => {
+  User.create(req.body, (err, newUser) => {
+    if (err) throw err;
+    res.json(newUser);
+  });
+};
+
+module.exports = { index, show, create };
