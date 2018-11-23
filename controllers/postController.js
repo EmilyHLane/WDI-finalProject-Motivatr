@@ -10,4 +10,11 @@ const index = (req, res) => {
   });
 };
 
-module.exports = { index };
+const show = (req, res) => {
+  Post.findById(req.params.id, (err, showPost) => {
+    if (err) throw err;
+    res.json(showPost);
+  });
+};
+
+module.exports = { index, show };
