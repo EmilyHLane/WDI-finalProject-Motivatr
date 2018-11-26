@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const port = 27017;
-const url = `mongodb://localhost:${port}/reddit-clone`;
+const url = `mongodb://localhost:${port}/motivatr`;
 
 mongoose
   .connect(

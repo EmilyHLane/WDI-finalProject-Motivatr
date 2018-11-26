@@ -1,5 +1,6 @@
 const db = require("../models");
 const User = db.User;
+const bcrypt = require("bcrypt");
 
 //business logic - CRUD - here
 //find all users
@@ -20,9 +21,17 @@ const show = (req, res) => {
 
 //create a new user
 const create = (req, res) => {
-  User.create(req.body, (err, newUser) => {
-    if (err) throw err;
-    res.json(newUser);
+  bcrypt.hash(req.body.password, 10, (err, hash) => {
+    if (err) {
+      return res.status(500).json({
+        error: err
+      });
+    } else {
+      User.create({ email: req.body.email, password: hash }, (err, newUser) => {
+        if (err) throw err;
+        res.json(newUser);
+      });
+    }
   });
 };
 

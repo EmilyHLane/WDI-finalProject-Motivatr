@@ -3,11 +3,11 @@ const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
   username: String,
-  email: String,
-  password: String,
+  email: { type: String, required: true },
+  password: { type: String, required: true },
   firstName: String,
   lastName: String,
-  admin: Boolean
+  admin: { type: Boolean, default: false }
 });
 
 const User = mongoose.model("User", UserSchema);
