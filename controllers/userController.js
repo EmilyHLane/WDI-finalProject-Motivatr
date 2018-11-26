@@ -19,7 +19,35 @@ const show = (req, res) => {
   });
 };
 
-//create a new user
+//find user by email and password
+const login = (req, res) => {
+  User.findOne({ email: req.body.email })
+    .exec()
+    .then(function(user) {
+      bcrypt.compare(req.body.password, user.password, (err, result) => {
+        if (err) {
+          return res.status(401).json({
+            failed: "unauthorized access"
+          });
+        }
+        if (result) {
+          return res.status(200).json({
+            success: "welcome to jwt auth"
+          });
+        }
+        return res.status(401).json({
+          failed: "unauthorized"
+        });
+      });
+    })
+    .catch(error => {
+      res.status(500).json({
+        error: error
+      });
+    });
+};
+
+//create a new user with encrypted password
 const create = (req, res) => {
   bcrypt.hash(req.body.password, 10, (err, hash) => {
     if (err) {
@@ -39,4 +67,4 @@ const create = (req, res) => {
 
 //delete a user - add later if needed
 
-module.exports = { index, show, create };
+module.exports = { index, show, login, create };

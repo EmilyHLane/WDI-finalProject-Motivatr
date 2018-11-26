@@ -5,9 +5,33 @@ const app = express();
 const port = process.env.PORT || 4000;
 const userRouter = require("./config/api/user/routes");
 const postRouter = require("./config/api/post/routes");
-const secretOrKey = process.env.SECRET_OR_KEY;
 const jwt = require("jsonwebtoken");
-// const path = require("path");
+
+//------JWT Passport------
+const passport = require("passport");
+const passportJWT = require("passport-jwt");
+const JwtStrategy = passportJWT.Strategy;
+const ExtractJwt = passportJWT.ExtractJwt;
+
+//------Options------
+const opts = {
+  jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+  secretOrKey: process.env.SECRET_OR_KEY
+};
+
+//where does this go???
+const strategy = new JwtStrategy(opts, (payload, next) => {
+  //GET USER FROM DB
+  //can also exclude password
+  User.forge({ id: payload.id })
+    .fetch()
+    .then(res => {
+      next(null, res);
+    });
+});
+
+passport.use(strategy);
+app.use(passport.initialize());
 
 //------CORS------
 app.use((req, res, next) => {
@@ -24,20 +48,12 @@ app.use((req, res, next) => {
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-//-----send static file request to client-----
-// app.use(express.static(path.join(__dirname, "client", "build")));
-
 //------HTML endpoints------
 app.get("/", (req, res) => res.send("Hello World"));
 
 //------API endpoints------
 app.use("/api/user", userRouter);
 app.use("/api/post", postRouter);
-
-//-----fallback to index.html if req not handled by other api requests -----
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-// });
 
 //------Start Server------
 app.listen(port, () => console.log(`server is up on ${port}`));

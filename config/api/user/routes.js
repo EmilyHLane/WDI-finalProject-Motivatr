@@ -8,6 +8,9 @@ router.get("/", ctrl.user.index);
 //find user by id
 router.get("/:id", ctrl.user.show);
 
+//login
+router.post("/login", ctrl.user.login);
+
 //create new user
 router.post("/", ctrl.user.create);
 
