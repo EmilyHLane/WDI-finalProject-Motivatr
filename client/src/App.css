@@ -115,7 +115,30 @@ button {
   font-weight: bold;
 }
 
-/*------CREATE POST component------*/
+/*------HOMEPAGE - POST component------ */
+.all-posts {
+  display: flex;
+  justify-content: center;
+}
+
+.post-container {
+  border: 2px solid rgb(226, 63, 18);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 304px;
+  margin: 10px;
+}
+
+.post-container p {
+  text-align: center;
+  font-size: 1.5em;
+  padding: 0 4px;
+  font-family: "Open Sans Condensed", sans-serif;
+  margin: 10px;
+}
+
+/*------CREATE POST - NEWPOST component------*/
 .create-post-container {
   display: flex;
   flex-direction: column;
