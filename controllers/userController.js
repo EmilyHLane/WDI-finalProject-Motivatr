@@ -72,10 +72,13 @@ const create = (req, res) => {
         error: err
       });
     } else {
-      User.create({ email: req.body.email, password: hash }, (err, newUser) => {
-        if (err) throw err;
-        res.json(newUser);
-      });
+      User.create(
+        { email: req.body.email, password: hash, username: req.body.username },
+        (err, newUser) => {
+          if (err) throw err;
+          res.json(newUser);
+        }
+      );
     }
   });
 };
