@@ -33,7 +33,8 @@ const posts = [
       admin: true
     },
     image: "image x string here",
-    text: "motivational quote for image x",
+    textUpper: "motivational quote for image x",
+    textLower: "motiv quote lower here",
     datePosted: "",
     comments: [],
     likes: 100
@@ -48,7 +49,9 @@ const posts = [
       admin: false
     },
     image: "image y string here",
-    text: "motivational quote for image y",
+    textUpper: "motivational quote for image y",
+    textLower:
+      "motiv quote text lower add it here maybe it's longer if it's a really great quote",
     datePosted: "",
     comments: [],
     likes: 50
