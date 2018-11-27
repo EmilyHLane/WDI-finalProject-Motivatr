@@ -3,11 +3,12 @@ dotenv.config();
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 4000;
+const path = require("path");
 const userRouter = require("./config/api/user/routes");
 const postRouter = require("./config/api/post/routes");
 const jwt = require("jsonwebtoken");
 
-//------JWT Passport------
+//------JWT Passport Variables------
 const passport = require("passport");
 const passportJWT = require("passport-jwt");
 const JwtStrategy = passportJWT.Strategy;
@@ -19,7 +20,7 @@ const opts = {
   secretOrKey: process.env.SECRET_OR_KEY
 };
 
-//where does this go???
+//------JWT Strategy------
 const strategy = new JwtStrategy(opts, (payload, next) => {
   //GET USER FROM DB
   //can also exclude password
@@ -48,12 +49,20 @@ app.use((req, res, next) => {
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
+//------Static files path-----
+app.use(express.static(path.join(__dirname, "client", "build")));
+
 //------HTML endpoints------
 app.get("/", (req, res) => res.send("Hello World"));
 
 //------API endpoints------
 app.use("/api/user", userRouter);
 app.use("/api/post", postRouter);
+
+//------Catchall route handler------
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
 
 //------Start Server------
 app.listen(port, () => console.log(`server is up on ${port}`));

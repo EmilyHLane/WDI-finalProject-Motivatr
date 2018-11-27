@@ -24,7 +24,14 @@ const users = [
 //post seed data
 const posts = [
   {
-    createdBy: {},
+    createdBy: {
+      username: "emilytest",
+      email: "emily@test.com",
+      password: "123456",
+      firstName: "emily",
+      lastName: "test",
+      admin: true
+    },
     image: "image x string here",
     text: "motivational quote for image x",
     datePosted: "",
@@ -32,7 +39,14 @@ const posts = [
     likes: 100
   },
   {
-    createdBy: {},
+    createdBy: {
+      username: "christest",
+      email: "chris@test.com",
+      password: "654321",
+      firstName: "chris",
+      lastName: "test",
+      admin: false
+    },
     image: "image y string here",
     text: "motivational quote for image y",
     datePosted: "",

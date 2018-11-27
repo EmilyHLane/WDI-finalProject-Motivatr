@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const port = 27017;
-const url = `mongodb://localhost:${port}/motivatr`;
+const url = process.env.MONGODB_URI || `mongodb://localhost:${port}/motivatr`;
 
 mongoose
   .connect(

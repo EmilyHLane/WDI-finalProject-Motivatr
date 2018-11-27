@@ -80,4 +80,8 @@ typings/
 # FuseBox cache
 .fusebox/
 
+.DS_Store
+*.orig
+.idea/
+.vscode/
 # End of https://www.gitignore.io/api/node
