@@ -1,47 +1,21 @@
-import React, { Component } from "react";
+import React from "react";
 
-class Post extends Component {
-  render() {
+const Post = props => {
+  const getData = props.posts;
+  console.log("get data is " + getData);
+  const image = getData[0].image;
+  console.log("image " + image);
+  const postData = getData.map(data => {
     return (
-      <div className="all-posts">
-        <div className="post-container">
-          <p>Believe in yourself.</p>
-          <img src="https://placekitten.com/300/300" alt="random kitten" />
-          <p>
-            You are braver than you think, more talented than you know, and
-            capable of more than you imagine. ― Roy T. Bennett
-          </p>
-        </div>
-
-        <div className="post-container">
-          <p>Believe in yourself.</p>
-          <img src="https://placekitten.com/300/300" alt="random kitten" />
-          <p>
-            You are braver than you think, more talented than you know, and
-            capable of more than you imagine. ― Roy T. Bennett
-          </p>
-        </div>
-
-        <div className="post-container">
-          <p>Believe in yourself.</p>
-          <img src="https://placekitten.com/300/300" alt="random kitten" />
-          <p>
-            You are braver than you think, more talented than you know, and
-            capable of more than you imagine. ― Roy T. Bennett
-          </p>
-        </div>
-
-        <div className="post-container">
-          <p>Believe in yourself.</p>
-          <img src="https://placekitten.com/300/300" alt="random kitten" />
-          <p>
-            You are braver than you think, more talented than you know, and
-            capable of more than you imagine. ― Roy T. Bennett
-          </p>
-        </div>
+      <div className="post-container">
+        <p>{data.textUpper}</p>
+        <img src={data.image} alt="motivational quote" />
+        <p>{data.textLower}</p>
       </div>
     );
-  }
-}
+  });
+
+  return <div className="all-posts">{postData}</div>;
+};
 
 export default Post;

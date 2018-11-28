@@ -32,9 +32,10 @@ const posts = [
       lastName: "test",
       admin: true
     },
-    image: "image x string here",
-    textUpper: "motivational quote for image x",
-    textLower: "motiv quote lower here",
+    image: "https://placekitten.com/300/300",
+    textUpper: "Believe in yourself.",
+    textLower:
+      "You are braver than you think, more talented than you know, and capable of more than you imagine. Roy T. Bennett",
     datePosted: "",
     comments: [],
     likes: 100
@@ -48,10 +49,9 @@ const posts = [
       lastName: "test",
       admin: false
     },
-    image: "image y string here",
-    textUpper: "motivational quote for image y",
-    textLower:
-      "motiv quote text lower add it here maybe it's longer if it's a really great quote",
+    image: "https://www.fillmurray.com/300/300",
+    textUpper: "Life is so damn short;",
+    textLower: "For fuck's sake, just do what makes you happy.",
     datePosted: "",
     comments: [],
     likes: 50
