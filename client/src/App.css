@@ -187,7 +187,7 @@ button {
 /*------SELECT IMAGE component------*/
 .select-image-container {
   border: 1px solid black;
-  width: 400px;
+  width: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -195,7 +195,6 @@ button {
 }
 
 .select-image-container img {
-  width: 304px;
-
+  width: 204px;
   border: 2px solid grey;
 }
