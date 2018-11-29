@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Image from "./Image";
 import axios from "axios";
 import { US_KEY } from "../config/keys";
-const KEY = US_KEY.REACT_APP_UNSPLASH_KEY || process.env.REACT_APP_UNSPLASH_KEY;
+const KEY = process.env.REACT_APP_UNSPLASH_KEY || US_KEY.REACT_APP_UNSPLASH_KEY;
 
 class SelectImage extends Component {
   state = {
