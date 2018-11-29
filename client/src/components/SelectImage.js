@@ -10,10 +10,13 @@ class SelectImage extends Component {
   };
 
   componentDidMount() {
-    axios.get(`https://api.unsplash.com/photos/?client_id=${KEY}`).then(res => {
-      const images = res.data;
-      this.setState({ images });
-    });
+    axios
+      .get(`https://api.unsplash.com/photos/?client_id=${KEY}`)
+      .then(res => {
+        const images = res.data;
+        this.setState({ images });
+      })
+      .catch(err => console.log(err));
   }
 
   render() {
