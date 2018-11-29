@@ -80,8 +80,11 @@ typings/
 # FuseBox cache
 .fusebox/
 
+# other files to ignore
 .DS_Store
 *.orig
 .idea/
 .vscode/
+structure.txt
+client/src/config/
 # End of https://www.gitignore.io/api/node
