@@ -19,7 +19,7 @@ class SelectImage extends Component {
   render() {
     return (
       <div className="select-image-container col-2">
-        <h2>Select an Image (test component)</h2>
+        <h3>Select an Image</h3>
         <Image images={this.state.images} />
       </div>
     );

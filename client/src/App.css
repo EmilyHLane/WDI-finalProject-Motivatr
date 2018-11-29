@@ -8,16 +8,22 @@ body {
   margin: 0;
 }
 /*------HEADER component------*/
-
 header {
   display: flex;
   justify-content: space-between;
-  height: 80vh;
   margin: 0;
   background-image: url("https://images.unsplash.com/photo-1507608869274-d3177c8bb4c7?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=8ccfcc13bfcdfca6f54a8e043ffbe075&w=1000&q=80");
   background-size: cover;
   border-bottom: solid 1px rgb(43, 173, 229);
   border-bottom-color: rgb(226, 63, 18);
+}
+
+/* .small-header {
+  height: auto;
+} */
+
+.big-header {
+  height: 80vh;
 }
 
 header img {
@@ -137,12 +143,48 @@ button {
   font-family: "Open Sans Condensed", sans-serif;
   margin: 10px;
 }
+/*-----------------------*/
+/*------CREATE POST------*/
+/*-----------------------*/
 
-/*------CREATE POST - NEWPOST component------*/
+/*------CreatePostPage component------*/
+.create-post-page {
+}
 .create-post-container {
+  display: flex;
+}
+/*------POSTBUILDER component ------*/
+.col-1 {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin: 0 auto;
+}
+
+.post-builder-container h2 {
+  margin: 50px auto 0;
+}
+
+.post-builder-container h3 {
+  margin: 0 auto 50px;
+  text-align: center;
+}
+
+.find-quote-link {
+  text-decoration: underline;
+  text-align: center;
+  margin-top: 50px;
+}
+/*------SELECTIMAGE component------*/
+.col-2 {
+  width: 50%;
+}
+/*------NEWPOST component------*/
+.new-post-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 }
 
 .post-image-placeholder {
@@ -161,18 +203,18 @@ button {
 }
 
 .text-top {
-  position: relative;
-  top: 58px;
+  position: absolute;
+  top: 5px;
 }
 
 .text-bottom {
-  position: relative;
-  bottom: 53px;
+  position: absolute;
+  bottom: 125px;
 }
 
 .post-done {
   width: 400px;
-  margin-top: -42px;
+  margin-top: 10px;
   border: none;
 }
 
@@ -186,12 +228,10 @@ button {
 
 /*------SELECT IMAGE component------*/
 .select-image-container {
-  border: 1px solid black;
-  width: 300px;
+  border-left: 1px solid grey;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 auto;
 }
 
 .select-image-container img {

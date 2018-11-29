@@ -25,7 +25,7 @@ class Header extends Component {
   render() {
     if (this.state.user === "guest") {
       return (
-        <header>
+        <header className="big-header">
           <div className="logo-name-container">
             <Link to="/">
               <h1>motivatr</h1>
@@ -51,7 +51,7 @@ class Header extends Component {
         <div className="nav-container">
           <nav>
             {/* if user is logged in */}
-            <Link to="/newpost">Create</Link>
+            <Link to="/createpost">Create</Link>
             <Link to="/logout" onClick={this.handleLogout}>
               Logout
             </Link>
