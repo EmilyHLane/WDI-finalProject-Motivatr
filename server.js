@@ -61,7 +61,7 @@ app.use("/api/post", postRouter);
 
 //------Catchall route handler------
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+  res.send("<h1>404: Not Found...</h1>");
 });
 
 //------Start Server------
