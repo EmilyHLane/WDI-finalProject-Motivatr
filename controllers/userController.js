@@ -37,7 +37,7 @@ const login = (req, res) => {
         }
         //if match, create and send jwt token
         if (result) {
-          const payload = { id: user._id, message: "Hi everyone" };
+          const payload = { id: user._id };
           //const payload = {id: user.id}
           const secret = process.env.SECRET_OR_KEY;
           jwt.sign(
