@@ -37,26 +37,27 @@ const login = (req, res) => {
         }
         //if match, create and send jwt token
         if (result) {
-          const payload = { id: user.id };
+          const payload = { id: user._id, message: "Hi everyone" };
+          //const payload = {id: user.id}
           const secret = process.env.SECRET_OR_KEY;
           jwt.sign(
             payload,
             secret,
             // { expiresIn: "1h" },
             (err, token) => {
-              console.log(token);
-              res.json({ success: true, token: "Bearer " + token });
+              res.json({
+                success: true,
+                token: token
+              });
             }
           );
         } else {
-          //extra catch for errors? need this?
           return res.status(401).json({
             failed: "unauthorized no token"
           });
         }
       });
     })
-    //catches other errors
     .catch(error => {
       res.status(500).json({
         error: error
