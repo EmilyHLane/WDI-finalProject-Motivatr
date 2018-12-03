@@ -6,6 +6,7 @@ const User = require("./User");
 const PostSchema = new Schema({
   createdBy: User.schema,
   image: String,
+  altTxt: String,
   textUpper: String,
   textLower: String,
   datePosted: { type: Date, default: Date.now },

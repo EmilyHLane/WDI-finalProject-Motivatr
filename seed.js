@@ -33,6 +33,7 @@ const posts = [
       admin: true
     },
     image: "https://placekitten.com/300/300",
+    altTxt: "cute cat",
     textUpper: "Believe in yourself.",
     textLower:
       "You are braver than you think, more talented than you know, and capable of more than you imagine. Roy T. Bennett",
@@ -50,6 +51,7 @@ const posts = [
       admin: false
     },
     image: "https://www.fillmurray.com/300/300",
+    altTxt: "Bill Murry",
     textUpper: "Life is so damn short;",
     textLower: "For fuck's sake, just do what makes you happy.",
     datePosted: "",
