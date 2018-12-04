@@ -1,6 +1,7 @@
 const db = require("../models");
 const Post = db.Post;
 const User = db.User;
+const homepage = "https://ehl-motivatr.herokuapp.com/";
 
 //business logic - CRUD - here
 //find all posts
@@ -36,16 +37,6 @@ const create = (req, res) => {
       res.json(newPost);
     });
   });
-  // Post.create(req.body, (err, newPost) => {
-  //   if (err) throw err;
-  //   User.findById({ _id: req.body.userId })
-  //     .populate("createdBy")
-  //     .exec((err, addedUser) => {
-  //       if (err) throw err;
-  //       console.log(addedUser);
-  //     });
-  //   res.json(newPost);
-  // });
 };
 
 //update post
@@ -66,7 +57,8 @@ const destroy = (req, res) => {
   Post.findByIdAndDelete(req.params.id, (err, deletedPost) => {
     if (err) throw err;
     console.log("deleted " + deletedPost);
-    res.redirect("/");
+    let whereareyou = res.redirect(homepage);
+    console.log(whereareyou);
   });
 };
 
