@@ -1,7 +1,8 @@
 const db = require("../models");
 const Post = db.Post;
 const User = db.User;
-const homepage = "https://ehl-motivatr.herokuapp.com/";
+const proxyCORS = "https://cors-anywhere.herokuapp.com/";
+const homepage = `${proxyCORS}https://ehl-motivatr.herokuapp.com/`;
 
 //business logic - CRUD - here
 //find all posts
