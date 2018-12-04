@@ -60,7 +60,7 @@ const destroy = (req, res) => {
     if (err) throw err;
     console.log(err);
     console.log("backend deleted: " + deletedPost);
-    res.redirect("/");
+    res.redirect("https://ehl-motivatr.herokuapp.com/");
   });
 };
 
