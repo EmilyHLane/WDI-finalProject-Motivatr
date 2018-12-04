@@ -3,7 +3,7 @@ const Post = db.Post;
 const User = db.User;
 // const homepage = "https://ehl-motivatr.herokuapp.com/";
 // const homepage = "http://localhost:3000/";
-const homepage = "/";
+// const homepage = "/";
 
 //business logic - CRUD - here
 //find all posts
@@ -58,8 +58,9 @@ const update = (req, res) => {
 const destroy = (req, res) => {
   Post.findByIdAndDelete(req.params.id, (err, deletedPost) => {
     if (err) throw err;
-    console.log("deleted: " + deletedPost);
-    // res.redirect(homepage);
+    console.log(err);
+    console.log("backend deleted: " + deletedPost);
+    res.redirect("/");
   });
 };
 
