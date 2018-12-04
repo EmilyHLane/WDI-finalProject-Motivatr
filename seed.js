@@ -32,7 +32,7 @@ const posts = [
       lastName: "test",
       admin: true
     },
-    image: "https://placekitten.com/300/300",
+    image: "https://placekitten.com/400/400",
     altTxt: "cute cat",
     textUpper: "Believe in yourself.",
     textLower:
@@ -50,7 +50,7 @@ const posts = [
       lastName: "test",
       admin: false
     },
-    image: "https://www.fillmurray.com/300/300",
+    image: "https://www.fillmurray.com/400/500",
     altTxt: "Bill Murry",
     textUpper: "Life is so damn short;",
     textLower: "For fuck's sake, just do what makes you happy.",
