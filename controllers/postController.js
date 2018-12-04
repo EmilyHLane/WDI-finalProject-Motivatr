@@ -22,6 +22,12 @@ const show = (req, res) => {
 const create = (req, res) => {
   Post.create(req.body, (err, newPost) => {
     if (err) throw err;
+    User.findById(user._id)
+      .populate("_id")
+      .exec((err, addedUser) => {
+        if (err) throw err;
+        console.log(addedUser);
+      });
     res.json(newPost);
   });
 };
