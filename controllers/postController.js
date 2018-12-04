@@ -66,6 +66,7 @@ const destroy = (req, res) => {
   Post.findByIdAndDelete(req.params.id, (err, deletedPost) => {
     if (err) throw err;
     console.log("deleted " + deletedPost);
+    res.redirect("/");
   });
 };
 
