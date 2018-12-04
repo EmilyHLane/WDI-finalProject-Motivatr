@@ -1,8 +1,9 @@
 const db = require("../models");
 const Post = db.Post;
 const User = db.User;
-const proxyCORS = "https://cors-anywhere.herokuapp.com/";
-const homepage = `${proxyCORS}https://ehl-motivatr.herokuapp.com/`;
+// const homepage = "https://ehl-motivatr.herokuapp.com/";
+// const homepage = "http://localhost:3000/";
+const homepage = "/";
 
 //business logic - CRUD - here
 //find all posts
@@ -57,9 +58,8 @@ const update = (req, res) => {
 const destroy = (req, res) => {
   Post.findByIdAndDelete(req.params.id, (err, deletedPost) => {
     if (err) throw err;
-    console.log("deleted " + deletedPost);
-    let whereareyou = res.redirect(homepage);
-    console.log(whereareyou);
+    console.log("deleted: " + deletedPost);
+    // res.redirect(homepage);
   });
 };
 
