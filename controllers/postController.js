@@ -64,7 +64,7 @@ const destroy = (req, res) => {
     }
 
     console.log("backend response >>>", deletedPost);
-    res.redirect("www.google.com");
+    res.redirect();
   });
 };
 
