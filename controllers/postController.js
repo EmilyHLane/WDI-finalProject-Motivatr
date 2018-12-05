@@ -58,9 +58,12 @@ const update = (req, res) => {
 //delete a post
 const destroy = (req, res) => {
   Post.findByIdAndDelete(req.params.id, (err, deletedPost) => {
-    if (err) throw err;
-    console.log(err);
-    console.log("backend deleted: " + deletedPost);
+    if (err) {
+      console.log(err);
+      throw err;
+    }
+
+    console.log("backend response >>>", deletedPost);
     res.redirect("https://ehl-motivatr.herokuapp.com/");
   });
 };
