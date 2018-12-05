@@ -3,7 +3,6 @@ dotenv.config();
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 4000;
-// const path = require("path");
 const userRouter = require("./config/api/user/routes");
 const postRouter = require("./config/api/post/routes");
 const jwt = require("jsonwebtoken");
@@ -48,9 +47,6 @@ app.use((req, res, next) => {
 //------Body Parser------
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-
-//------Static files path-----
-// app.use(express.static(path.join(__dirname, "client", "build")));
 
 //------HTML endpoints------
 app.get("/", (req, res) => res.send("Hello World"));
