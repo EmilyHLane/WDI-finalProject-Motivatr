@@ -3,7 +3,7 @@ dotenv.config();
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 4000;
-const path = require("path");
+// const path = require("path");
 const userRouter = require("./config/api/user/routes");
 const postRouter = require("./config/api/post/routes");
 const jwt = require("jsonwebtoken");
