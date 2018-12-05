@@ -58,7 +58,6 @@ const destroy = (req, res) => {
       console.log(err);
       throw err;
     }
-
     console.log("backend response >>>", deletedPost);
   });
 };
