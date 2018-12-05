@@ -1,7 +1,7 @@
 const db = require("../models");
 const Post = db.Post;
 const User = db.User;
-const proxy = "https://cors-anywhere.herokuapp.com/";
+// const proxy = "https://cors-anywhere.herokuapp.com/";
 // const homepage = "https://ehl-motivatr.herokuapp.com/";
 // const homepage = "http://localhost:3000/";
 // const homepage = "/";
@@ -61,7 +61,7 @@ const destroy = (req, res) => {
     if (err) throw err;
     console.log(err);
     console.log("backend deleted: " + deletedPost);
-    res.redirect(`${proxy}https://ehl-motivatr.herokuapp.com/`);
+    res.redirect("https://ehl-motivatr.herokuapp.com/");
   });
 };
 
