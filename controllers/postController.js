@@ -45,7 +45,7 @@ const update = (req, res) => {
     req.body,
     { new: true },
     (err, updatedPost) => {
-      if (err) throw err;
+      if (err) console.log(err, " from backend");
       res.json(updatedPost);
     }
   );
