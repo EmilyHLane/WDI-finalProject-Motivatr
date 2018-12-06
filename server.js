@@ -59,13 +59,42 @@ app.use("/api/post", postRouter);
 //------Nodemailer------
 app.post("/send", (req, res) => {
   console.log(req.body);
-  // const output = `
-  // <p>${req.body.message}</p>
-  // <p>${req.body.textUpper}</p>
-  // <img src=${req.body.image} alt=${data.altTxt} />
-  // <p>${req.body.textLower}</p>`;
+  const output = `
+  <p>${req.body.message}</p>
+  <p>${req.body.textUpper}</p>
+  <img src=${req.body.image} alt=${data.altTxt} />
+  <p>${req.body.textLower}</p>`;
 
-  // console.log(output);
+  let transporter = nodemailer.createTransport({
+    host: "smtp.ethereal.email",
+    port: 587,
+    secure: false, // true for 465, false for other ports
+    auth: {
+      user: "svgzjthrn3stjie3@ethereal.email", // generated ethereal user
+      pass: "cd6pPPHHPaemhbm5Wx" // generated ethereal password
+    },
+    tls: {
+      rejectUnauthorized: false
+    }
+  });
+
+  // setup email data with unicode symbols
+  let mailOptions = {
+    from: '"Embem Emaily" <myemail.com>', // sender address
+    to: "bar@example.com, baz@example.com", // list of receivers
+    subject: req.body.subject, // Subject line
+    text: "Hello", // plain text body
+    html: output // html body
+  };
+
+  // send mail with defined transport object
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      return console.log(error);
+    }
+    console.log("Message sent: %s", info.messageId);
+    console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+  });
 });
 
 //------Catchall route handler------
