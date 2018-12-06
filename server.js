@@ -95,6 +95,7 @@ app.post("/send", (req, res) => {
     console.log("Message sent: %s", info.messageId);
     console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
   });
+  res.status(204).end();
 });
 
 //------Catchall route handler------
