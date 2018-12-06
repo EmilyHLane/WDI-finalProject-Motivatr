@@ -1,7 +1,7 @@
 const dotenv = require("dotenv");
 dotenv.config();
 const express = require("express");
-const nodeMailer = require("nodemailer");
+const nodemailer = require("nodemailer");
 const app = express();
 const port = process.env.PORT || 4000;
 const userRouter = require("./config/api/user/routes");
