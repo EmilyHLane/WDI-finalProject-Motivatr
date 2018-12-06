@@ -80,7 +80,7 @@ app.post("/send", (req, res) => {
 
   // setup email data with unicode symbols
   let mailOptions = {
-    from: '"Embem Emaily" <myemail.com>', // sender address
+    from: '"Embem Emaily" <myemail@example.com>', // sender address
     to: "bar@example.com, baz@example.com", // list of receivers
     subject: req.body.subject, // Subject line
     text: "Hello", // plain text body
