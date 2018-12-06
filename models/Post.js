@@ -6,9 +6,9 @@ const PostSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "User"
   },
-  image: String,
+  image: { type: String, required: true },
   altTxt: String,
-  textUpper: String,
+  textUpper: { type: String, required: true },
   textLower: String,
   datePosted: { type: Date, default: Date.now },
   comments: [
