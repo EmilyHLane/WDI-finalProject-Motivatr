@@ -57,7 +57,7 @@ app.use("/api/user", userRouter);
 app.use("/api/post", postRouter);
 
 //------Nodemailer------
-app.send("/send", (req, res) => {
+app.post("/send", (req, res) => {
   console.log(req.body);
 });
 
