@@ -55,10 +55,9 @@ const update = (req, res) => {
 const destroy = (req, res) => {
   Post.findByIdAndDelete(req.params.id, (err, deletedPost) => {
     res.status(204).end();
-    // if (err) {
-    //   throw err;
-    // }
-    // console.log("backend response >>>", deletedPost);
+    if (err) {
+      throw err;
+    }
   });
 };
 
