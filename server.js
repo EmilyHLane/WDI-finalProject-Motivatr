@@ -58,13 +58,14 @@ app.use("/api/post", postRouter);
 
 //------Nodemailer------
 app.post("/send", (req, res) => {
-  const output = `
-  <p>${req.body.message}</p>
-  <p>${req.body.textUpper}</p>
-  <img src=${req.body.image} alt=${data.altTxt} />
-  <p>${req.body.textLower}</p>`;
+  console.log(req.body);
+  // const output = `
+  // <p>${req.body.message}</p>
+  // <p>${req.body.textUpper}</p>
+  // <img src=${req.body.image} alt=${data.altTxt} />
+  // <p>${req.body.textLower}</p>`;
 
-  console.log(output);
+  // console.log(output);
 });
 
 //------Catchall route handler------
