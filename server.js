@@ -62,7 +62,7 @@ app.post("/send", (req, res) => {
   const output = `
   <p>${req.body.message}</p>
   <p>${req.body.textUpper}</p>
-  <img src=${req.body.image} alt=${data.altTxt} />
+  <img src=${req.body.image} alt=${req.body.altTxt} />
   <p>${req.body.textLower}</p>`;
 
   let transporter = nodemailer.createTransport({
