@@ -27,7 +27,8 @@ const login = (req, res) => {
   //check for existing email
   User.findOne({ email: req.body.email })
     .exec()
-    .then(function(user) {
+    .then(user => {
+      console.log("backend check 1", user);
       //check encrypted password match
       bcrypt.compare(req.body.password, user.password, (err, result) => {
         if (err) {
@@ -38,7 +39,6 @@ const login = (req, res) => {
         //if match, create and send jwt token
         if (result) {
           const payload = { id: user._id };
-          //const payload = {id: user.id}
           const secret = process.env.SECRET_OR_KEY;
           jwt.sign(
             payload,
